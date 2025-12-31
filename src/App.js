@@ -1,8 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import emailjs from 'emailjs-com';
 
 function App() {
+
+  /* ===============================
+     FORCE FULLSCREEN ON USER ACTION
+  ================================ */
+  useEffect(() => {
+    const requestFullscreen = () => {
+      const elem = document.documentElement;
+
+      if (!document.fullscreenElement) {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen(); // Safari
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen(); // IE11
+        }
+      }
+
+      // Remove listeners after first activation
+      document.removeEventListener('click', requestFullscreen);
+      document.removeEventListener('touchstart', requestFullscreen);
+      document.removeEventListener('keydown', requestFullscreen);
+    };
+
+    document.addEventListener('click', requestFullscreen);
+    document.addEventListener('touchstart', requestFullscreen);
+    document.addEventListener('keydown', requestFullscreen);
+
+    return () => {
+      document.removeEventListener('click', requestFullscreen);
+      document.removeEventListener('touchstart', requestFullscreen);
+      document.removeEventListener('keydown', requestFullscreen);
+    };
+  }, []);
+
   const content = {
     brand: 'Bini Seifu Real Estate',
     tagline: 'Luxury Homes • Smart Investments • Trusted Advisors',
@@ -74,12 +109,8 @@ function App() {
       e.target,
       'LkPanZm-3OzubO9Pg'
     )
-      .then(() => {
-        alert('Message sent successfully!');
-      })
-      .catch(() => {
-        alert('Failed to send message. Please try again.');
-      });
+      .then(() => alert('Message sent successfully!'))
+      .catch(() => alert('Failed to send message. Please try again.'));
 
     e.target.reset();
   };
@@ -100,7 +131,6 @@ function App() {
       </header>
 
       <main>
-        {/* HERO */}
         <section className="hero">
           <div className="hero-content">
             <h1>{content.welcome}</h1>
@@ -111,44 +141,23 @@ function App() {
           </div>
         </section>
 
-        {/* ABOUT */}
         <section className="section" id="about">
           <h2>{content.about}</h2>
           <p style={{ whiteSpace: 'pre-line' }}>{content.aboutText}</p>
         </section>
 
-        {/* SERVICES */}
         <section className="section-dark" id="services">
           <h2>{content.services}</h2>
           <div className="grid">
-            <div className="card">
-              <h3>{content.service1}</h3>
-              <p>{content.service1Text}</p>
-            </div>
-            <div className="card">
-              <h3>{content.service2}</h3>
-              <p>{content.service2Text}</p>
-            </div>
-            <div className="card">
-              <h3>{content.service3}</h3>
-              <p>{content.service3Text}</p>
-            </div>
-            <div className="card">
-              <h3>{content.service4}</h3>
-              <p>{content.service4Text}</p>
-            </div>
-            <div className="card">
-              <h3>{content.service5}</h3>
-              <p>{content.service5Text}</p>
-            </div>
-            <div className="card">
-              <h3>{content.service6}</h3>
-              <p>{content.service6Text}</p>
-            </div>
+            {[1,2,3,4,5,6].map((i) => (
+              <div key={i} className="card">
+                <h3>{content[`service${i}`]}</h3>
+                <p>{content[`service${i}Text`]}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* PROPERTIES */}
         <section className="section" id="properties">
           <h2>{content.properties}</h2>
           <div className="grid">
@@ -167,7 +176,6 @@ function App() {
           </div>
         </section>
 
-        {/* TESTIMONIALS */}
         <section className="section-dark" id="testimonials">
           <h2>{content.testimonials}</h2>
           <div className="grid">
@@ -177,7 +185,6 @@ function App() {
           </div>
         </section>
 
-        {/* CONTACT */}
         <section className="section" id="contact">
           <h2>Contact & Business Information</h2>
           <p>
