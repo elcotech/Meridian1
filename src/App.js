@@ -4,42 +4,81 @@ import emailjs from 'emailjs-com';
 
 function App() {
   const content = {
+    brand: 'Bini Seifu Real Estate',
+    tagline: 'Luxury Homes • Smart Investments • Trusted Advisors',
+
     about: 'About Us',
     services: 'Our Services',
-    testimonials: 'Customer Reviews',
-    contact: 'Contact & Location',
-    welcome: 'Welcome to Nick Furniture Making',
-    description: 'Crafting beautiful, custom furniture that transforms your living spaces',
-    aboutText: '🌟 Nick Furniture Making is your trusted partner for high-quality, custom furniture craftsmanship. With years of experience in woodworking and furniture design, we create pieces that combine beauty, functionality, and durability. Each piece is handcrafted with attention to detail and built to last generations.\n🔥 We specialize in custom furniture solutions tailored to your specific needs, style preferences, and space requirements. From modern minimalist designs to classic traditional pieces, we bring your vision to life with precision and care.\n🏆 Our commitment to excellence and customer satisfaction has made us the preferred choice for homeowners, businesses, and interior designers seeking quality furniture craftsmanship.',
-    servicesOffered: 'Custom Furniture',
-    largeScaleDesign: 'Living Room Furniture: Custom sofas, coffee tables, TV stands, and shelving units',
-    problemSolving: 'Bedroom Sets: Beautiful beds, wardrobes, nightstands, and dressers',
-    serverAdmin: 'Dining Room: Custom dining tables, chairs, buffets, and serving carts',
-    programmingLanguages: 'Specialty Services',
-    phpFrameworks: 'Custom Woodworking: Bespoke pieces designed specifically for your space',
-    jsFrameworks: 'Furniture Restoration: Repair and restore your cherished furniture pieces',
-    htmlCss: 'Office Furniture: Desks, bookcases, and storage solutions for workspaces',
-    databases: 'Kitchen Cabinetry: Custom kitchen cabinets and storage solutions',
-    cloudServices: 'Upholstery Services: Reupholstering and cushion replacement',
-    integration: 'Furniture Design Consultation: Professional advice for your furniture projects',
-    cms: 'Material Selection: Guidance on wood types, finishes, and hardware',
-    versionControl: 'Space Planning: Optimize your room layout with custom furniture',
-    projectManagement: 'Delivery & Installation: Professional delivery and setup service',
-    testimonialsText1: 'Nick created a beautiful custom dining table for our family. The craftsmanship is exceptional, and it has become the centerpiece of our home. Highly recommended for anyone looking for quality furniture!',
-    testimonialsText2: 'The custom bookshelves Nick built for my office are absolutely stunning. His attention to detail and professional service made the entire process smooth and enjoyable.',
-    contactForm: 'Get a Free Quote'
+    properties: 'Featured Properties',
+    testimonials: 'Client Testimonials',
+    contact: 'Contact Us',
+
+    welcome: 'Find Your Dream Home With Confidence',
+    description:
+      'We connect you with premium residential and commercial properties, backed by expert guidance and market insight.',
+
+    aboutText:
+      '🏡 Bini Seifu Real Estate is a professional real estate firm dedicated to helping clients buy, sell, and invest in properties with confidence.\n\n' +
+      '📍 We specialize in residential homes, luxury apartments, land sales, and commercial properties. Our team understands the local market deeply and provides transparent, honest advice.\n\n' +
+      '🤝 From first-time buyers to seasoned investors, we deliver personalized service, legal guidance, and smooth transactions — every step of the way.',
+
+    service1: 'Property Buying & Selling',
+    service1Text:
+      'We help you buy and sell homes, apartments, land, and commercial properties at the best market value.',
+
+    service2: 'Luxury & Residential Properties',
+    service2Text:
+      'Exclusive listings of villas, apartments, and gated community homes designed for modern living.',
+
+    service3: 'Land & Investment Opportunities',
+    service3Text:
+      'Strategic land acquisition and high-return property investments with full documentation support.',
+
+    service4: 'Property Management',
+    service4Text:
+      'Complete property management services including tenant sourcing, rent collection, and maintenance.',
+
+    service5: 'Legal & Documentation Support',
+    service5Text:
+      'We assist with contracts, title verification, and legal compliance to ensure secure transactions.',
+
+    service6: 'Consultation & Valuation',
+    service6Text:
+      'Professional property valuation and personalized consultation to guide smart real estate decisions.',
+
+    property1: 'Modern Luxury Apartment',
+    property1Text: '3 Bedrooms • City Center • Secure Parking • Balcony View',
+
+    property2: 'Spacious Family Home',
+    property2Text: '4 Bedrooms • Garden • Quiet Neighborhood • Prime Location',
+
+    property3: 'Commercial Office Space',
+    property3Text: 'Ideal for Businesses • High Visibility • Easy Access',
+
+    testimonial1:
+      'Bini Seifu Real Estate helped me find my dream home quickly and professionally. The process was smooth and stress-free.',
+    testimonial2:
+      'Excellent service and honest advice. I successfully invested in land with full legal support.',
+    testimonial3:
+      'Very professional team. They managed my rental property perfectly and handled everything.',
+
+    contactForm: 'Request Property Consultation',
   };
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_udbhs7q', 'template_kssz2gr', e.target, 'LkPanZm-3OzubO9Pg')
-      .then((result) => {
-          console.log(result.text);
-          alert('Message sent successfully!');
-      }, (error) => {
-          console.log(error.text);
-          alert('Failed to send message. Please try again.');
+    emailjs.sendForm(
+      'service_udbhs7q',
+      'template_kssz2gr',
+      e.target,
+      'LkPanZm-3OzubO9Pg'
+    )
+      .then(() => {
+        alert('Message sent successfully!');
+      })
+      .catch(() => {
+        alert('Failed to send message. Please try again.');
       });
 
     e.target.reset();
@@ -49,89 +88,120 @@ function App() {
     <div className="App">
       <header>
         <nav>
+          <h2 className="logo">{content.brand}</h2>
           <ul>
             <li><a href="#about">{content.about}</a></li>
             <li><a href="#services">{content.services}</a></li>
+            <li><a href="#properties">{content.properties}</a></li>
             <li><a href="#testimonials">{content.testimonials}</a></li>
             <li><a href="#contact">{content.contact}</a></li>
           </ul>
         </nav>
-        <div className="hero-image">
-          <img src="2.jpg" alt="Hero" style={{ width: '100%', height: 'auto' }} />
-        </div>
       </header>
+
       <main>
-        <section className="hero" id="about">
+        {/* HERO */}
+        <section className="hero">
           <div className="hero-content">
-            <h1>🪑 🛋️</h1><br/>
             <h1>{content.welcome}</h1>
             <p>{content.description}</p>
-            <a href="#contact" className="cta-button">{content.contactForm}</a>
+            <a href="#contact" className="cta-button">
+              {content.contactForm}
+            </a>
           </div>
         </section>
+
+        {/* ABOUT */}
         <section className="section" id="about">
           <h2>{content.about}</h2>
-          <p>{content.aboutText}</p>
+          <p style={{ whiteSpace: 'pre-line' }}>{content.aboutText}</p>
         </section>
-        <section className="section-extended" id="services">
+
+        {/* SERVICES */}
+        <section className="section-dark" id="services">
           <h2>{content.services}</h2>
-          <div className="services-grid">
-            <div className="service-card">
-              <h3>{content.servicesOffered}</h3>
-              <p>{content.largeScaleDesign}</p>
-              <p>{content.problemSolving}</p>
-              <p>{content.serverAdmin}</p>
+          <div className="grid">
+            <div className="card">
+              <h3>{content.service1}</h3>
+              <p>{content.service1Text}</p>
             </div>
-            <div className="service-card">
-              <h3>{content.programmingLanguages}</h3>
-              <p>{content.phpFrameworks}</p>
-              <p>{content.jsFrameworks}</p>
-              <p>{content.htmlCss}</p>
-              <p>{content.databases}</p>
-              <p>{content.cloudServices}</p>
-              <p>{content.integration}</p>
-              <p>{content.cms}</p>
-              <p>{content.versionControl}</p>
-              <p>{content.projectManagement}</p>
+            <div className="card">
+              <h3>{content.service2}</h3>
+              <p>{content.service2Text}</p>
+            </div>
+            <div className="card">
+              <h3>{content.service3}</h3>
+              <p>{content.service3Text}</p>
+            </div>
+            <div className="card">
+              <h3>{content.service4}</h3>
+              <p>{content.service4Text}</p>
+            </div>
+            <div className="card">
+              <h3>{content.service5}</h3>
+              <p>{content.service5Text}</p>
+            </div>
+            <div className="card">
+              <h3>{content.service6}</h3>
+              <p>{content.service6Text}</p>
             </div>
           </div>
         </section>
-        <section className="section" id="testimonials">
+
+        {/* PROPERTIES */}
+        <section className="section" id="properties">
+          <h2>{content.properties}</h2>
+          <div className="grid">
+            <div className="card property">
+              <h3>{content.property1}</h3>
+              <p>{content.property1Text}</p>
+            </div>
+            <div className="card property">
+              <h3>{content.property2}</h3>
+              <p>{content.property2Text}</p>
+            </div>
+            <div className="card property">
+              <h3>{content.property3}</h3>
+              <p>{content.property3Text}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <section className="section-dark" id="testimonials">
           <h2>{content.testimonials}</h2>
-          <div className="testimonial-grid">
-            <div className="testimonial-card">
-              <p>{content.testimonialsText1}</p>
-              <p className="testimonial-author"><h3>Satisfied Homeowner</h3></p>
-            </div>
-            <div className="testimonial-card">
-              <p>{content.testimonialsText2}</p>
-              <p className="testimonial-author"><h3>Office Client</h3></p>
-            </div>
+          <div className="grid">
+            <div className="card testimonial">{content.testimonial1}</div>
+            <div className="card testimonial">{content.testimonial2}</div>
+            <div className="card testimonial">{content.testimonial3}</div>
           </div>
         </section>
+
+        {/* CONTACT */}
         <section className="section" id="contact">
-          <h1>Business Hours & Contact Information</h1>
+          <h2>Contact & Business Information</h2>
           <p>
-            <strong>Business Hours:</strong><br/>
-            Monday - Friday: 8:00 AM - 6:00 PM<br/>
-            Saturday: 9:00 AM - 4:00 PM<br/>
-            Sunday: Closed<br/><br/>
-            
-            <strong>Phone Number:</strong><br/>
-            0962117213<br/><br/>
-            
-            <strong>Location:</strong><br/>
-            Visit our workshop to discuss your furniture project<br/>
-            Free consultations and quotes available
+            📞 <strong>Phone:</strong> 0911434369 <br />
+            📧 <strong>Email:</strong> biniseifu@gmail.com <br />
+            🕘 <strong>Business Hours:</strong> Mon – Sat, 8:30 AM – 6:30 PM
           </p>
-          <h2>Request a Free Consultation</h2>
+
           <form className="contact-form" onSubmit={sendEmail}>
-            <input type="text" name="user_name" placeholder="Your Name" />
-            <textarea name="message" placeholder="Describe your furniture project, room dimensions, and any specific requirements" required></textarea><br /><br />
-            <button type="submit">Send Request</button>
+            <input type="text" name="user_name" placeholder="Your Full Name" required />
+            <input type="email" name="user_email" placeholder="Your Email" required />
+            <textarea
+              name="message"
+              placeholder="Tell us what type of property you are looking for..."
+              required
+            />
+            <button type="submit">Send Inquiry</button>
           </form>
         </section>
-      </main> 
+      </main>
+
+      <footer className="footer">
+        <p>© 2025 Bini Seifu Real Estate. All Rights Reserved.</p>
+      </footer>
     </div>
   );
 }
