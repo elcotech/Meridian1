@@ -22,7 +22,7 @@ function App() {
 🏢 Current: Part-time Lecturer at Worldlink Cross-Border International College
 🏛️ Government Service: ICT Instructor & ICT club Director at Nefassilk Poly-Technic College
 
-💡 Specializing in advanced IT education, curriculum development, and technical consultation with deep industry experience across multiple sectors.
+💡 Specializing in advanced IT education, Educational program development, and technical consultation with deep industry experience across multiple sectors.
 
 🌍 Languages: Amharic (Native), English (Fluent), Chinese (Basic), Sign Language (Conversational)`,
 
@@ -38,11 +38,11 @@ function App() {
 
     education: 'Education & Certifications',
     educationList: [
-      ['MSc in Information Technology Technical Teacher Education', 'Ethio-China University | 2024'],
-      ['BSc in Technical Teacher Education (IT)', 'Ethio-China University | 2015-2018'],
-      ['Diploma in Special Needs and Language', 'Kotebe College | 2007-2010'],
-      ['Diploma, IT Technician', 'Nifass Silk Poly-Technic College | 2006-2009'],
-      ['Coursework in Business Administration', 'Adam Science and Technology University | 2011-2014']
+      ['MSc in Information Technology Technical Teacher Education', 'Ethio-China University'],
+      ['BSc in Technical Teacher Education (IT)', 'Ethio-China University '],
+      ['Diploma in Special Needs and Language', 'Kotebe College'],
+      ['Diploma, IT Technician', 'Nifass Silk Poly-Technic College'],
+      ['Coursework in Business Administration', 'Adama Science and Technology University']
     ],
 
     certifications: [
