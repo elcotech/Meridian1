@@ -1,33 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
-/* =========================
-   FULLSCREEN HELPER
-========================= */
-const forceFullscreen = () => {
-  const el = document.documentElement;
-  if (document.fullscreenElement || document.webkitFullscreenElement) return;
-  try {
-    if (el.requestFullscreen) el.requestFullscreen();
-    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
-  } catch (e) {
-    // fail silently
-  }
-};
-
 function App() {
-  /* =========================
-     FIRST USER INTERACTION
-  ========================= */
-  useEffect(() => {
-    const handler = () => forceFullscreen();
-    document.addEventListener('touchstart', handler, { once: true });
-    document.addEventListener('click', handler, { once: true });
-    return () => {
-      document.removeEventListener('touchstart', handler);
-      document.removeEventListener('click', handler);
-    };
-  }, []);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const content = {
     name: 'Mequment Seifu Gebirmichael',
@@ -85,74 +61,46 @@ function App() {
     ]
   };
 
-  /* =========================
-     CONTACT FORM HANDLER
-  ========================= */
-  const sendEmail = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    forceFullscreen();
-    const formData = new FormData(e.target);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
+    setIsSubmitting(true);
+    setSubmitMessage('');
 
-    // Primary professional email
-    const PROFESSIONAL_EMAIL = 'ethiomk@elcotech.org';
-    const TEST_EMAIL = 'mequmail@gmail.com';
+    const formData = new FormData(e.target);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      service: formData.get('service'),
+      message: formData.get('message'),
+      _subject: `New Inquiry from ${formData.get('name')}`,
+      _captcha: "false"
+    };
 
     try {
-      console.log('Sending inquiry to:', PROFESSIONAL_EMAIL);
-      const response = await fetch(`https://formsubmit.co/ajax/${PROFESSIONAL_EMAIL}`, {
+      // Use FormSubmit.co with professional email
+      const response = await fetch('https://formsubmit.co/ajax/ethiomk@elcotech.org', {
         method: 'POST',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          message: message,
-          _subject: `New Professional Inquiry: ${name}`,
-          _captcha: "false",
-          _template: "table",
-          _autoresponse: "Thank you for contacting Mequment Seifu. I will review your inquiry and respond within 24-48 hours."
-        })
+        body: JSON.stringify(data)
       });
+
+      const result = await response.json();
       
-      const result = await response.json(); 
-      console.log('FormSubmit Response:', result);
-      
-      if (result.success === "true") {
-        alert('✅ Inquiry sent successfully! You will receive a confirmation email shortly.');
+      if (result.success) {
+        setSubmitMessage('✅ Thank you! Your message has been sent successfully. I will respond within 24-48 hours.');
         e.target.reset();
       } else {
-        // Fallback to test email
-        const fallbackResponse = await fetch(`https://formsubmit.co/ajax/${TEST_EMAIL}`, {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            message: message,
-            _subject: `[BACKUP] Inquiry: ${name}`,
-            _captcha: "false"
-          })
-        });
-        
-        const fallbackResult = await fallbackResponse.json();
-        if (fallbackResult.success === "true") {
-          alert('⚠️ Primary email not responding. Message sent to backup. Please check your email for confirmation.');
-          e.target.reset();
-        } else {
-          alert('❌ Unable to send message. Please try again later or contact directly via email.');
-        }
+        setSubmitMessage('⚠️ There was an error sending your message. Please try again or email directly at ethiomk@elcotech.org');
       }
     } catch (error) {
-      console.error('Network/Fetch Error:', error);
-      alert('❌ Network error. Please ensure you have internet connection.');
+      console.error('Error:', error);
+      setSubmitMessage('❌ Network error. Please try again or contact directly via phone.');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitMessage(''), 5000);
     }
   };
 
@@ -162,11 +110,11 @@ function App() {
         <nav>
           <h2 className="logo">Mequment Seifu</h2>
           <ul>
-            <li><a href="#about" onClick={forceFullscreen}>Profile</a></li>
-            <li><a href="#services" onClick={forceFullscreen}>Services</a></li>
-            <li><a href="#education" onClick={forceFullscreen}>Education</a></li>
-            <li><a href="#skills" onClick={forceFullscreen}>Expertise</a></li>
-            <li><a href="#contact" onClick={forceFullscreen}>Contact</a></li>
+            <li><a href="#about">Profile</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Expertise</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
       </header>
@@ -202,8 +150,8 @@ function App() {
             </div>
             
             <div className="hero-buttons">
-              <a href="#services" className="cta-button primary" onClick={forceFullscreen}>Explore Services</a>
-              <a href="#contact" className="cta-button secondary" onClick={forceFullscreen}>Contact Me</a>
+              <a href="#services" className="cta-button primary">Explore Services</a>
+              <a href="#contact" className="cta-button secondary">Contact Me</a>
             </div>
           </div>
         </section>
@@ -227,7 +175,7 @@ function App() {
           <h2><span className="section-icon">🚀</span> {content.services}</h2>
           <div className="grid">
             {content.servicesList.map(([title, text], i) => (
-              <div className="card service-card" key={i} onClick={forceFullscreen}>
+              <div className="card service-card" key={i}>
                 <div className="card-icon">{['💻', '🌐', '🔧', '🤖', '📚', '💡'][i]}</div>
                 <h3>{title}</h3>
                 <p>{text}</p>
@@ -288,6 +236,12 @@ function App() {
         <section className="section" id="contact">
           <h2><span className="section-icon">📞</span> Professional Contact</h2>
           
+          {submitMessage && (
+            <div className={`alert-message ${submitMessage.includes('✅') ? 'success' : 'error'}`}>
+              {submitMessage}
+            </div>
+          )}
+          
           <div className="contact-grid">
             <div className="contact-info">
               <h3>Get in Touch</h3>
@@ -331,22 +285,20 @@ function App() {
             </div>
             
             <div className="contact-form-container">
-              <form className="contact-form" onSubmit={sendEmail}>
+              <form className="contact-form" onSubmit={handleSubmit}>
                 <input 
                   type="text" 
                   name="name" 
                   placeholder="Full Name"
                   required 
-                  onFocus={forceFullscreen}
                 />
                 <input 
                   type="email" 
                   name="email" 
                   placeholder="Email Address"
                   required 
-                  onFocus={forceFullscreen}
                 />
-                <select name="service" required onFocus={forceFullscreen}>
+                <select name="service" required>
                   <option value="">Select Service Interest</option>
                   <option value="training">Advanced Computer Training</option>
                   <option value="web">Web Design & Development</option>
@@ -360,9 +312,10 @@ function App() {
                   placeholder="Describe your project or training needs..."
                   required
                   rows="6"
-                  onFocus={forceFullscreen}
                 ></textarea>
-                <button type="submit" onClick={forceFullscreen}>Send Professional Inquiry</button>
+                <button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send Professional Inquiry'}
+                </button>
               </form>
             </div>
           </div>
@@ -383,4 +336,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
