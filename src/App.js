@@ -6,10 +6,10 @@ function App() {
   const [submitMessage, setSubmitMessage] = useState('');
 
   const content = {
-    name: 'Mequment Seifu Gebirmichael',
+    name: 'Mequanent Seifu Gebremichael',
     title: 'Senior IT Educator & Technical Consultant',
     location: 'Addis Ababa, Ethiopia',
-    phone: '+251-941554818',
+    phone: '+251941554818',
     email: 'ethiomk@elcotech.org',
     linkedin: 'linkedin.com/in/mequanent-seifu',
     
