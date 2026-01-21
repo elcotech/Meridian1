@@ -6,59 +6,59 @@ function App() {
   const [submitMessage, setSubmitMessage] = useState('');
 
   const content = {
-    name: 'Mequanent Seifu Gebremichael',
-    title: 'Senior IT Educator & Technical Consultant',
+    name: 'MERIDIAN LAW FIRM LLP',
+    title: 'ብቁ የሆነ የሕግ አገልግሎት',
     location: 'Addis Ababa, Ethiopia',
-    phone: '+251941554818',
-    email: 'ethiomk@elcotech.org',
-    linkedin: 'linkedin.com/in/mequanent-seifu',
+    phone: '+251-900-802400 / +251-911-425414',
+    email: 'meridianlawinfo@gmail.com',
+    website: 'https://meridianlawfirmllp.com.et',
     
-    welcome: 'Transforming Tech Education Through Innovation',
-    description: '17+ years of expertise in ICT instruction, advanced computer systems, and curriculum development. Bridging theory with industry practice.',
+    welcome: 'Strategically positioned within international legal and professional networks',
+    description: 'A Full-Service Ethiopian Law Firm providing comprehensive legal services across all areas of Ethiopian law for domestic and international clients.',
     
-    about: 'Professional Profile',
-    aboutText: `🎓 MSc in Information Technology Technical Teacher Education | 17+ Years Experience
+    about: 'About Our Firm',
+    aboutText: `🏛️ MERIDIAN LAW FIRM LLP - ሜሪዲያን የጥብቅና አገልግሎት ኃ/የተ/የሽ/ማህበር
 
-🏢 Current: Part-time Lecturer at Worldlink Cross-Border International College
-🏛️ Government Service: ICT Instructor & ICT club Director at Nefassilk Poly-Technic College
+A Full-Service Ethiopian Law Firm
+Strategically positioned within international legal and professional networks, we provide comprehensive legal services across all areas of Ethiopian law for domestic and international clients, including foreign investors.
 
-💡 Specializing in advanced IT education, Educational program development, and technical consultation with deep industry experience across multiple sectors.
+ማንኛውንም የሕግ አገልግሎት እንሰጣለን
+ለአገር ውስጥና ለዓለም አቀፍ ደንበኞች፣ የውጭ ባለሃብቶችን ጨምሮ፣ በኢትዮጵያ ሕግ በሁሉም መስኮች ላይ የተለያዩ የሕግ አገልግሎቶችን በተለያዩ ዘመኑ ባፈራቸው በርካታ አማራጮች እንሰጣለን።
 
-🌍 Languages: Amharic (Native), English (Fluent), Chinese (Basic), Sign Language (Conversational)`,
+Through strategic legal advocacy and informed consultation, we position our clients at the forefront of their fields.
+የተለያዩ የክርክር አማራጮችን በመጠቀም እንዲሁም የሕግ ምክር ቀድመን በመስጠት ደንበኞቻችን ቀዳሚ እንዲሆኑ እንተጋለን።`,
 
-    services: 'Expert IT Services',
+    services: 'Our Legal Services',
     servicesList: [
-      ['Advanced Computer Training', 'Comprehensive training in programming, databases, networking, and software development for all skill levels.'],
-      ['Web Design & Development', 'Full-stack web development using modern frameworks (React, PHP) with responsive design principles.'],
-      ['Advanced Computer Maintenance & Networking', 'Enterprise-level hardware troubleshooting, Cisco network scaling, and IT infrastructure management.'],
-      ['Bot Development & Automation', 'Custom bot development for process automation, data processing, and intelligent systems.'],
-      ['Educational framework development', 'Designing cutting-edge IT education programs aligned with industry standards and technological trends.'],
-      ['Technical Consultation', 'Expert guidance on IT infrastructure, system optimization, and digital transformation strategies.']
+      ['Legal Advisory Services', 'Expert legal guidance to help your business navigate complex matters and make informed decisions.'],
+      ['Commercial Law', 'Guiding businesses from start-up to multinational, including entity formation, M&A, corporate governance, and all commercial matters.'],
+      ['Litigation & Defense', 'Handling complex civil and criminal litigation with the rigor required for federal-level disputes.'],
+      ['Tax Law & Financial Strategy', 'Conducting high-level reviews of tax obligations, advising on incentives, and representing clients before tax authorities.'],
+      ['Insurance & Liability Advisory', 'Providing counsel on liability, coverage disputes, regulatory compliance, and risk management in all areas of law.'],
+      ['Comprehensive Legal Services', 'Expert representation in civil, criminal, labour, commercial, and all areas of Ethiopian law for domestic and international clients.']
     ],
 
-    education: 'Education & Certifications',
-    educationList: [
-      ['MSc in Information Technology Technical Teacher Education', 'FTTI'],
-      ['BSc in Technical Teacher Education (IT)', 'Ethio-China University '],
-      ['Diploma in Special Needs and Language', 'KCTE'],
-      ['Diploma, IT Technician', 'Nefassilk Poly-Technic College'],
-      ['Coursework in Business Administration', 'Adama Science and Technology University']
+    partners: 'Our Partners',
+    partnersList: [
+      ['MESFIN MARE WELDEGIORGIS', 'MANAGING PARTNER', '30+ years of extensive experience in constitutional law, international law, criminal law, civil law, commercial law, and administrative law.'],
+      ['HABTAMU BISRAT KEBEDE', 'DEPUTY MANAGING PARTNER', '20+ years of experience in governmental and public institutions as well as in private legal practice.'],
+      ['TALEMA GIZACHEW BIZUNEH', 'PARTNER', '22+ years of combined service in governmental institutions and as a practicing lawyer.'],
+      ['AKLILU ABEBAW BELAY', 'PARTNER', '22+ years of extensive service in various governmental institutions, public corporations, and private legal practice.']
     ],
 
-    certifications: [
-      'Wholistic Certificate of Competence in IT',
-      'CISCO Scaling Networks Certification',
-      'Advanced Pedagogical Methods Certification'
+    expertise: 'Specialized Service Sectors',
+    expertiseList: [
+      'Judicial Insight & Oversight – Applying impartial legal analysis to every case',
+      'Strategic Networks & Policy – Bridging the gap between legislation and commercial objectives',
+      'Litigation & Defense – Federal-level civil and criminal litigation',
+      'Commercial Law – Entity formation, M&A, corporate governance',
+      'Tax Law & Financial Strategy – Tax obligations and incentives',
+      'Insurance & Liability Advisory – Risk management and compliance',
+      'Foreign Investment – Investment, immigration, and cross-border legal matters'
     ],
 
-    technicalSkills: 'Technical Expertise',
-    skillsList: [
-      ['Programming & Development', 'Java, C++, C#, PHP, Visual Basic, SQL, React, QBASIC'],
-      ['Database Management', 'Oracle, MySQL, Supabase, SQL Server'],
-      ['Networking & Infrastructure', 'Cisco Scaling Networks, Network Maintenance, CSMARP(CR)'],
-      ['Software & Systems', 'Adobe Photoshop, Macromedia Suite, Microsoft Office Suite'],
-      ['IT Support & Maintenance', 'Advanced Computer Maintenance, Hardware Troubleshooting']
-    ]
+    newsletter: 'Join Our Newsletter',
+    newsletterText: 'Receive updates, legal insights, and firm news directly in your inbox.'
   };
 
   const handleSubmit = async (e) => {
@@ -72,13 +72,13 @@ function App() {
       email: formData.get('email'),
       service: formData.get('service'),
       message: formData.get('message'),
-      _subject: `New Inquiry from ${formData.get('name')}`,
+      _subject: `New Legal Inquiry from ${formData.get('name')}`,
       _captcha: "false"
     };
 
     try {
       // Use FormSubmit.co with professional email
-      const response = await fetch('https://formsubmit.co/ajax/ethiomk@elcotech.org', {
+      const response = await fetch('https://formsubmit.co/ajax/meridianlawinfo@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -90,10 +90,10 @@ function App() {
       const result = await response.json();
       
       if (result.success) {
-        setSubmitMessage('✅ Thank you! Your message has been sent successfully. I will respond within 24-48 hours.');
+        setSubmitMessage('✅ Thank you! Your legal inquiry has been sent successfully. We will respond within 24 hours.');
         e.target.reset();
       } else {
-        setSubmitMessage('⚠️ There was an error sending your message. Please try again or email directly at ethiomk@elcotech.org');
+        setSubmitMessage('⚠️ There was an error sending your message. Please try again or email directly at meridianlawinfo@gmail.com');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -108,12 +108,12 @@ function App() {
     <div className="App">
       <header>
         <nav>
-          <h2 className="logo">C̤E̤O̤ o̤f̤ E̤L̤C̤O̤T̤E̤C̤H̤</h2>
+          <h2 className="logo">MERIDIAN LAW FIRM LLP</h2>
           <ul>
-            <li><a href="#about">Profile</a></li>
+            <li><a href="#about">About Firm</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Expertise</a></li>
+            <li><a href="#partners">Partners</a></li>
+            <li><a href="#expertise">Expertise</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -144,26 +144,26 @@ function App() {
                 <a href={`mailto:${content.email}`} className="contact-link">{content.email}</a>
               </div>
               <div className="contact-item">
-                <span className="contact-icon">🔗</span>
-                <a href={`https://${content.linkedin}`} target="_blank" rel="noopener noreferrer" className="contact-link">LinkedIn Profile</a>
+                <span className="contact-icon">🌐</span>
+                <a href={content.website} target="_blank" rel="noopener noreferrer" className="contact-link">Visit Website</a>
               </div>
             </div>
             
             <div className="hero-buttons">
-              <a href="#services" className="cta-button primary">Explore Services</a>
-              <a href="#contact" className="cta-button secondary">Contact Me</a>
+              <a href="#services" className="cta-button primary">Our Services</a>
+              <a href="#contact" className="cta-button secondary">Contact Us</a>
             </div>
           </div>
         </section>
 
-        {/* PROFESSIONAL PROFILE */}
+        {/* ABOUT FIRM */}
         <section className="section" id="about">
-          <h2><span className="section-icon">👨‍💼</span> {content.about}</h2>
+          <h2><span className="section-icon">🏛️</span> {content.about}</h2>
           <div className="profile-card">
             <div className="profile-content">
               <p style={{ whiteSpace: 'pre-line' }}>{content.aboutText}</p>
               <div className="experience-badge">
-                <span className="experience-number">17+</span>
+                <span className="experience-number">30+</span>
                 <span className="experience-text">Years Experience</span>
               </div>
             </div>
@@ -172,11 +172,11 @@ function App() {
 
         {/* SERVICES */}
         <section className="section-dark" id="services">
-          <h2><span className="section-icon">🚀</span> {content.services}</h2>
+          <h2><span className="section-icon">⚖️</span> {content.services}</h2>
           <div className="grid">
             {content.servicesList.map(([title, text], i) => (
               <div className="card service-card" key={i}>
-                <div className="card-icon">{['💻', '🌐', '🔧', '🤖', '📚', '💡'][i]}</div>
+                <div className="card-icon">{['📋', '💼', '⚔️', '💰', '🛡️', '🌍'][i]}</div>
                 <h3>{title}</h3>
                 <p>{text}</p>
               </div>
@@ -184,57 +184,57 @@ function App() {
           </div>
         </section>
 
-        {/* EDUCATION & CERTIFICATIONS */}
-        <section className="section" id="education">
-          <div className="two-column">
-            <div className="column">
-              <h2><span className="section-icon">🎓</span> Education</h2>
-              <div className="timeline">
-                {content.educationList.map(([degree, details], i) => (
-                  <div className="timeline-item" key={i}>
-                    <div className="timeline-dot"></div>
-                    <div className="timeline-content">
-                      <h4>{degree}</h4>
-                      <p>{details}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="column">
-              <h2><span className="section-icon">📜</span> Certifications</h2>
-              <div className="certifications-list">
-                {content.certifications.map((cert, i) => (
-                  <div className="certification-item" key={i}>
-                    <span className="cert-icon">✅</span>
-                    <span>{cert}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* TECHNICAL SKILLS */}
-        <section className="section-dark" id="skills">
-          <h2><span className="section-icon">⚡</span> {content.technicalSkills}</h2>
-          <div className="skills-grid">
-            {content.skillsList.map(([category, skills], i) => (
-              <div className="skill-category" key={i}>
-                <h3>{category}</h3>
-                <div className="skills-tags">
-                  {skills.split(', ').map((skill, j) => (
-                    <span className="skill-tag" key={j}>{skill}</span>
-                  ))}
-                </div>
+        {/* PARTNERS */}
+        <section className="section" id="partners">
+          <h2><span className="section-icon">👥</span> Our Legal Partners</h2>
+          <div className="grid">
+            {content.partnersList.map(([name, title, description], i) => (
+              <div className="card partner-card" key={i}>
+                <div className="card-icon">{['👨‍⚖️', '👨‍💼', '👨‍🎓', '👨‍⚖️'][i]}</div>
+                <h3>{name}</h3>
+                <div className="partner-title">{title}</div>
+                <p>{description}</p>
               </div>
             ))}
           </div>
         </section>
 
+        {/* EXPERTISE */}
+        <section className="section-dark" id="expertise">
+          <h2><span className="section-icon">🎯</span> {content.expertise}</h2>
+          <div className="expertise-list">
+            {content.expertiseList.map((item, i) => (
+              <div className="expertise-item" key={i}>
+                <span className="expertise-icon">✅</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* NEWSLETTER SECTION */}
+        <section className="section newsletter-section">
+          <h2><span className="section-icon">📬</span> {content.newsletter}</h2>
+          <div className="newsletter-content">
+            <p>{content.newsletterText}</p>
+            <div className="newsletter-form">
+              <input 
+                type="email" 
+                placeholder="Email address"
+                className="newsletter-input"
+              />
+              <button className="newsletter-button">Subscribe</button>
+            </div>
+            <div className="newsletter-option">
+              <input type="checkbox" id="no-thanks" />
+              <label htmlFor="no-thanks">No, thank you</label>
+            </div>
+          </div>
+        </section>
+
         {/* CONTACT SECTION */}
         <section className="section" id="contact">
-          <h2><span className="section-icon">📞</span> Contact me</h2>
+          <h2><span className="section-icon">📞</span> Contact Us</h2>
           
           {submitMessage && (
             <div className={`alert-message ${submitMessage.includes('✅') ? 'success' : 'error'}`}>
@@ -244,7 +244,7 @@ function App() {
           
           <div className="contact-grid">
             <div className="contact-info">
-              <h3>Get in Touch</h3>
+              <h3>Get Legal Consultation</h3>
               <div className="contact-details">
                 <div className="contact-detail-item">
                   <span className="detail-icon">📍</span>
@@ -268,19 +268,19 @@ function App() {
                   </div>
                 </div>
                 <div className="contact-detail-item">
-                  <span className="detail-icon">🔗</span>
+                  <span className="detail-icon">🌐</span>
                   <div>
-                    <strong>LinkedIn</strong>
-                    <p><a href={`https://${content.linkedin}`} target="_blank" rel="noopener noreferrer" className="contact-link">{content.linkedin}</a></p>
+                    <strong>Website</strong>
+                    <p><a href={content.website} target="_blank" rel="noopener noreferrer" className="contact-link">{content.website}</a></p>
                   </div>
                 </div>
               </div>
               
               <div className="availability">
-                <h4>📅 Availability</h4>
-                <p>• Consulting & Training Sessions</p>
-                <p>• 🇪🇹 Ethiopia 🇪🇹</p>
-                <p>• Online & On-site (Addis Ababa)</p>
+                <h4>🕒 Office Hours</h4>
+                <p>• Monday - Friday: 8:30 AM - 5:30 PM</p>
+                <p>• Saturday: 9:00 AM - 1:00 PM</p>
+                <p>• Emergency consultations available</p>
               </div>
             </div>
             
@@ -299,22 +299,23 @@ function App() {
                   required 
                 />
                 <select name="service" required>
-                  <option value="">Select Service Interest</option>
-                  <option value="training">Advanced Computer Training</option>
-                  <option value="web">Web Design & Development</option>
-                  <option value="maintenance">Computer Maintenance & Networking</option>
-                  <option value="bots">Bot Development</option>
-                  <option value="consultation">Technical Consultation</option>
-                  <option value="other">Other Inquiry</option>
+                  <option value="">Select Legal Service Needed</option>
+                  <option value="advisory">Legal Advisory Services</option>
+                  <option value="commercial">Commercial Law</option>
+                  <option value="litigation">Litigation & Defense</option>
+                  <option value="tax">Tax Law & Financial Strategy</option>
+                  <option value="insurance">Insurance & Liability</option>
+                  <option value="foreign">Foreign Investment</option>
+                  <option value="other">Other Legal Matter</option>
                 </select>
                 <textarea
                   name="message"
-                  placeholder="Describe your project or training needs..."
+                  placeholder="Describe your legal matter or inquiry..."
                   required
                   rows="6"
                 ></textarea>
                 <button type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? 'Sending...' : 'Send Professional Inquiry'}
+                  {isSubmitting ? 'Sending...' : 'Send Legal Inquiry'}
                 </button>
               </form>
             </div>
@@ -324,12 +325,12 @@ function App() {
       
       <footer className="footer">
         <div className="footer-content">
-          <p>© {new Date().getFullYear()}  🇮‌   🇦‌🇲‌   🇭‌🇪‌🇷‌🇪‌   🇫‌🇴‌🇷‌   🇾‌🇴‌🇺‌</p>
-          <p className="footer-tagline">Transforming Technology Education in Ethiopia</p>
+          <p>© {new Date().getFullYear()} MERIDIAN LAW FIRM LLP</p>
+          <p className="footer-tagline">ማንኛውንም የሕግ አገልግሎት እንሰጣለን</p>
           <div className="footer-links">
             <a href={`mailto:${content.email}`}>Email</a>
             <a href={`tel:${content.phone}`}>Phone</a>
-            <a href={`https://${content.linkedin}`} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href={content.website} target="_blank" rel="noopener noreferrer">Website</a>
           </div>
         </div>
       </footer>
