@@ -2038,3 +2038,165 @@ h2 {
     text-decoration: underline !important;
   }
 }
+/* Add these styles to your existing App.css file */
+
+/* Button styles for read-more and view-all */
+button.read-more,
+button.view-all {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+button.read-more {
+  color: var(--gold-accent);
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.3s ease;
+}
+
+button.view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--gold-accent);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border: 2px solid var(--gold-accent);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+button.read-more:hover,
+button.view-all:hover {
+  gap: 1rem;
+}
+
+button.view-all:hover {
+  background: var(--gradient-gold);
+  color: var(--deep-navy);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-gold);
+}
+
+/* Newsletter form */
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* Language toggle accessibility */
+.language-toggle {
+  cursor: pointer;
+}
+
+/* Fix for floating contact button */
+.floating-contact {
+  text-decoration: none;
+}
+
+/* Fix for form validation */
+.contact-form input:invalid,
+.contact-form select:invalid,
+.contact-form textarea:invalid {
+  border-color: var(--ruby);
+}
+
+.contact-form input:valid,
+.contact-form select:valid,
+.contact-form textarea:valid {
+  border-color: var(--emerald);
+}
+
+/* Add focus styles for accessibility */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--gold-accent);
+  outline-offset: 2px;
+}
+
+/* Skip to main content for screen readers */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--gold-accent);
+  color: var(--deep-navy);
+  padding: 8px;
+  z-index: 1001;
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Make sure all interactive elements have proper focus styles */
+.nav-menu li a:focus,
+.contact-link:focus,
+.cta-button:focus,
+.floating-contact:focus,
+.language-toggle:focus,
+.menu-toggle:focus,
+.read-more:focus,
+.view-all:focus,
+.newsletter-button:focus,
+.submit-btn:focus {
+  outline: 2px solid var(--gold-accent);
+  outline-offset: 2px;
+}
+
+/* Improve contrast for better accessibility */
+@media (prefers-contrast: high) {
+  :root {
+    --gold-accent: #b8941f;
+    --deep-navy: #000814;
+    --ivory: #ffffff;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .particle,
+  .visual-circle,
+  .profile-badge:hover .badge-content,
+  .service-card:hover,
+  .partner-card:hover,
+  .expertise-item:hover,
+  .contact-detail-item:hover,
+  .contact-item:hover,
+  .cta-button:hover,
+  .floating-contact:hover,
+  .view-all:hover,
+  .read-more:hover,
+  .newsletter-button:hover,
+  .submit-btn:hover {
+    transform: none !important;
+  }
+}
