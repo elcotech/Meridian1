@@ -7,11 +7,16 @@ function App() {
   const [submitMessage, setSubmitMessage] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Track scroll position for animations
   useEffect(() => {
     const handleScroll = () => setScrollPosition(window.scrollY);
     window.addEventListener('scroll', handleScroll);
+    
+    // Simulate loading completion
+    setTimeout(() => setIsLoading(false), 1000);
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -25,7 +30,7 @@ function App() {
       email: 'meridianlawinfo@gmail.com',
       website: 'https://meridianlawfirmllp.com.et',
       welcome: 'በዓለም አቀፍ የሕግ አውታረ መረቦች ውስጥ በስትራቴጂያዊ ሁኔታ ተቀምጠናል',
-      description: 'ሙሉ አገልግሎት የሚሰጥ የኢትዮጵያ የሕግ ቢሮ ለውስጥ እና ለዓለም አቀፍ ደንበኞች በኢትዮጵያ ሕግ ሁሉም መስኮች ላይ የሚያሟሉ የሕግ አገልግሎቶችን የሚሰጥ።',
+      description: 'ሙሉ አገልግሎት የሚሰጥ የኢትዮጵያ የሕግ ቢሮ ለውስጥ እና ለዓለም አቀፍ ደንበኞች በኢትዮጵያ ሕግ ሁሉም መስኮች ላይ የሚያሟሉ የሕግ አገልግሎቶችን የሚስጥ።',
       about: 'ስለ ቢሮችን',
       aboutText: `🏛️ መሪዲያን የሕግ ቢሮ ኤል.ኤል.ፒ. - ሜሪዲያን የጥብቅና አገልግሎት ኃ/የተ/የሽ/ማህበር
 
@@ -41,7 +46,7 @@ function App() {
       servicesList: [
         ['የሕግ ምክር አገልግሎቶች', 'የባለሙያ የሕግ መመሪያ ዕቅዶችዎ ውስብስብ ጉዳዮችን እንዲያስተናግዱ እና ትክክለኛ ውሳኔዎችን እንዲወስኑ ለመርዳት።'],
         ['ንግድ ሕግ', 'ንግድ ድርጅቶችን ከመጀመሪያ እስከ ባለብዙ ብሔራዊ ደረጃ ማስተዋወቅ፣ የድርጅት መፍጠር፣ M&A፣ የድርጅት አስተዳደር እና ሁሉም የንግድ ጉዳዮች።'],
-        ['ፍርድ እና መከላከል', 'በፌደራል ደረጃ የሚነሱ ክርክሮችን የሚጠይቁ ውስብስብ የሲቪል እና የወንጀል ፍርዶችን መከላከል።'],
+        ['ፍርድ እና መከላከል', 'በፌደራር ደረጃ የሚነሱ ክርክሮችን የሚጠይቁ ውስብስብ የሲቪል እና የወንጀል ፍርዶችን መከላከል።'],
         ['ግብር ሕግ እና የፋይናንስ ስትራቴጂ', 'የግብር ግዴታዎችን በከፍተኛ ደረጃ መግለጫ፣ በማበረታቻዎች ምክር ማቅረብ እና ደንበኞችን በግብር ባለስልጣኖች ፊት መወከል።'],
         ['የኢንሹራንስ እና ተጠያቂነት ምክር', 'በሁሉም የሕግ መስኮች ውስጥ ተጠያቂነት፣ የሽፋን ክርክር፣ የደንብ ማሟላት እና አደጋ አስተዳደር ላይ ምክር ማቅረብ።'],
         ['ሙሉ የሕግ አገልግሎቶች', 'በሲቪል፣ ወንጀል፣ የጉልበት፣ ንግድ እና በኢትዮጵያ ሕግ ሁሉም መስኮች ለአገር ውስጥ እና ለዓለም አቀፍ ደንበኞች የባለሙያ ወክል።']
@@ -57,7 +62,7 @@ function App() {
       expertiseList: [
         'የፍርድ ቤት ግንዛቤ እና ቁጥጥር - በእያንዳንዱ ጉዳይ ላይ የማያጣራ የሕግ ትንተና መተግበር',
         'የስትራቴጂ አውታረመረቦች እና ፖሊሲ - በሕግ እና በንግድ ዓላማዎች መካከል ያለውን ክፍተት መሙላት',
-        'ፍርድ እና መከላከል - የፌደራል ደረጃ ሲቪል እና ወንጀል ፍርዶች',
+        'ፍርድ እና መከላከል - የፌደራር ደረጃ ሲቪል እና ወንጀል ፍርዶች',
         'ንግድ ሕግ - የድርጅት መፍጠር፣ M&A፣ የድርጅት አስተዳደር',
         'ግብር ሕግ እና የፋይናንስ ስትራቴጂ - የግብር ግዴታዎች እና ማበረታቻዎች',
         'የኢንሹራንስ እና ተጠያቂነት ምክር - አደጋ አስተዳደር እና የደንብ ማሟላት',
@@ -184,17 +189,57 @@ Using various argument options and providing legal advice in advance, we strive 
     document.documentElement.dir = language === 'am' ? 'ltr' : 'rtl';
   };
 
+  const handleReadMore = (title) => {
+    console.log(`Reading more about: ${title}`);
+    alert(language === 'am' 
+      ? `ስለ "${title}" የበለጠ መረጃ በቅርብ ጊዜ ይገኛል።` 
+      : `More information about "${title}" will be available soon.`);
+  };
+
+  const handleViewAllArticles = () => {
+    console.log('View all articles clicked');
+    alert(language === 'am' 
+      ? 'ሁሉንም ጽሑፎች በቅርብ ጊዜ ይገኛሉ።' 
+      : 'All articles will be available soon.');
+  };
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.querySelector('input[type="email"]').value;
+    if (email) {
+      alert(language === 'am' 
+        ? `ለደንበኝነት ${email} አመሰግናለሁ! በቅርብ ጊዜ እንጽፋለን።` 
+        : `Thank you ${email} for subscribing! We'll be in touch soon.`);
+      form.reset();
+    }
+  };
+
   return (
     <div className={`App ${language}`}>
+      {/* Scroll Progress Indicator */}
+      <div 
+        className="scroll-progress" 
+        style={{ width: `${(scrollPosition / (document.body.scrollHeight - window.innerHeight)) * 100}%` }}
+      ></div>
+      
+      {/* Page Transition Overlay */}
+      {isLoading && <div className="page-transition"></div>}
+      
+      {/* Skip to Main Content for Accessibility */}
+      <a href="#main-content" className="skip-to-content">
+        {language === 'am' ? 'ወደ ዋና ይዘት ይሂዱ' : 'Skip to main content'}
+      </a>
+
       {/* Floating Language Toggle */}
-      <div className="language-toggle" onClick={handleLanguageToggle}>
+      <div className="language-toggle" onClick={handleLanguageToggle} role="button" tabIndex={0} aria-label="Toggle language">
         <div className="toggle-circle" data-lang={language === 'am' ? 'አማ' : 'ENG'}>
           {language === 'am' ? 'ENG' : 'አማ'}
         </div>
       </div>
 
       {/* Floating Contact Button */}
-      <a href="#contact" className="floating-contact">
+      <a href="#contact" className="floating-contact gold-shimmer">
         <span className="contact-icon">📞</span>
         <span className="contact-text">{language === 'am' ? 'አግኙን' : 'Contact'}</span>
       </a>
@@ -228,7 +273,7 @@ Using various argument options and providing legal advice in advance, we strive 
         </nav>
       </header>
       
-      <main>
+      <main id="main-content">
         {/* HERO SECTION */}
         <section className="hero">
           <div className="particles-container">
@@ -244,16 +289,16 @@ Using various argument options and providing legal advice in advance, we strive 
           
           <div className="hero-content">
             <div className="hero-title">
-              <h1 data-text={currentContent.name}>{currentContent.name}</h1>
+              <h1 data-text={currentContent.name} className="typewriter-text">{currentContent.name}</h1>
               <div className="title-gradient">
                 <span className="gradient-text">{currentContent.title}</span>
-                <div className="title-underline"></div>
+                <div className="title-underline gold-shimmer"></div>
               </div>
             </div>
             
             <div className="hero-tagline">
               <div className="tagline-item">
-                <div className="tagline-icon">⚖️</div>
+                <div className="tagline-icon floating-icon">⚖️</div>
                 <p>{currentContent.welcome}</p>
               </div>
             </div>
@@ -313,7 +358,7 @@ Using various argument options and providing legal advice in advance, we strive 
         <section className="section about-section" id="about">
           <div className="section-decoration">
             <div className="decoration-line left"></div>
-            <div className="decoration-icon">⚖️</div>
+            <div className="decoration-icon floating-icon">⚖️</div>
             <div className="decoration-line right"></div>
           </div>
           
@@ -369,7 +414,7 @@ Using various argument options and providing legal advice in advance, we strive 
               <div className="service-card" key={i}>
                 <div className="card-header">
                   <div className="card-icon-wrapper">
-                    <span className="card-icon">{['📋', '💼', '⚔️', '💰', '🛡️', '🌍'][i]}</span>
+                    <span className="card-icon floating-icon">{['📋', '💼', '⚔️', '💰', '🛡️', '🌍'][i]}</span>
                   </div>
                   <div className="card-number">{`0${i + 1}`}</div>
                 </div>
@@ -443,9 +488,9 @@ Using various argument options and providing legal advice in advance, we strive 
                   <h3>{title}</h3>
                   <p>{text}</p>
                   <div className="article-footer">
-                    <a href="#" className="read-more">
+                    <button className="read-more" onClick={() => handleReadMore(title)}>
                       {language === 'am' ? 'አንብብ' : 'Read More'} →
-                    </a>
+                    </button>
                     <div className="article-category">
                       {language === 'am' ? 'ሕግ' : 'Law'}
                     </div>
@@ -456,9 +501,9 @@ Using various argument options and providing legal advice in advance, we strive 
           </div>
           
           <div className="articles-cta">
-            <a href="#" className="view-all">
+            <button className="view-all" onClick={handleViewAllArticles}>
               {language === 'am' ? 'ሁሉንም ጽሑፎች ይመልከቱ' : 'View All Articles'} →
-            </a>
+            </button>
           </div>
         </section>
 
@@ -503,22 +548,23 @@ Using various argument options and providing legal advice in advance, we strive 
           <div className="newsletter-container">
             <div className="newsletter-content">
               <h2>
-                <span className="section-icon">📬</span>
+                <span className="section-icon floating-icon">📬</span>
                 {currentContent.newsletter}
               </h2>
               <p>{currentContent.newsletterText}</p>
               
-              <div className="newsletter-form">
+              <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
                 <input 
                   type="email" 
                   placeholder={language === 'am' ? 'የኢሜይል አድራሻ' : 'Email address'}
                   className="newsletter-input"
+                  required
                 />
-                <button className="newsletter-button">
+                <button type="submit" className="newsletter-button">
                   <span>{language === 'am' ? 'ይመዝገቡ' : 'Subscribe'}</span>
                   <span className="button-arrow">→</span>
                 </button>
-              </div>
+              </form>
               
               <div className="privacy-note">
                 {language === 'am' 
@@ -688,10 +734,14 @@ Using various argument options and providing legal advice in advance, we strive 
           </div>
           
           <div className="footer-bottom">
-            <p>© {new Date().getFullYear()} {currentContent.name}</p>
+            <p>© {new Date().getFullYear()} {currentContent.name}. {language === 'am' ? 'ሁሉም መብቶች የተጠበቁ ናቸው።' : 'All rights reserved.'}</p>
             <div className="footer-legal">
-              <a href="#">{language === 'am' ? 'የግላዊነት ፖሊሲ' : 'Privacy Policy'}</a>
-              <a href="#">{language === 'am' ? 'የአገልግሎት ውሎች' : 'Terms of Service'}</a>
+              <a href={`${currentContent.website}/privacy`} target="_blank" rel="noopener noreferrer">
+                {language === 'am' ? 'የግላዊነት ፖሊሲ' : 'Privacy Policy'}
+              </a>
+              <a href={`${currentContent.website}/terms`} target="_blank" rel="noopener noreferrer">
+                {language === 'am' ? 'የአገልግሎት ውሎች' : 'Terms of Service'}
+              </a>
             </div>
           </div>
         </div>
