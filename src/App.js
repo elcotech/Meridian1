@@ -382,7 +382,7 @@ Using various argument options and providing legal advice in advance, we strive 
               
               <div className="stats-grid">
                 <div className="stat-item">
-                  <div className="stat-number">World wide service</div>
+                  <div className="stat-number">International</div>
                   <div className="stat-label">{language === 'am' ? 'ደንበኞች' : 'Clients'}</div>
                 </div>
                 <div className="stat-item">
