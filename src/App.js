@@ -386,7 +386,7 @@ Using various argument options and providing legal advice in advance, we strive 
                   <div className="stat-label">{language === 'am' ? 'ደንበኞች' : 'Clients'}</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-number">95%</div>
+                  <div className="stat-number">High</div>
                   <div className="stat-label">{language === 'am' ? 'የተሳካ መጠን' : 'Success Rate'}</div>
                 </div>
                 <div className="stat-item">
